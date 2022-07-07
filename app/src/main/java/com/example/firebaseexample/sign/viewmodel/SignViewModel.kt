@@ -13,8 +13,16 @@ class SignViewModel @Inject constructor(private val signRepository: SignReposito
     private val _signInResult: MutableLiveData<String?> = MutableLiveData()
     val signInResult: LiveData<String?> = _signInResult
 
+    private val _signUpResult: MutableLiveData<String?> = MutableLiveData()
+    val signUpResult: LiveData<String?> = _signUpResult
+
     fun signIn(email: String, password: String)
     {
         signRepository.signInFirebase(email, password, _signInResult)
+    }
+
+    fun signUp(email: String, password: String)
+    {
+        signRepository.signUpFirebase(email, password, _signUpResult)
     }
 }

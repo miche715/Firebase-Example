@@ -1,18 +1,17 @@
 package com.example.firebaseexample.sign.view
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
-import com.example.firebaseexample.databinding.ActivitySignInBinding
+import com.example.firebaseexample.databinding.ActivitySignUpBinding
 import com.example.firebaseexample.sign.viewmodel.SignViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SignInActivity : AppCompatActivity()
+class SignUpActivity : AppCompatActivity()
 {
-    private lateinit var binding: ActivitySignInBinding
+    private lateinit var binding: ActivitySignUpBinding
 
     private val signViewModel: SignViewModel by viewModels()
 
@@ -20,14 +19,14 @@ class SignInActivity : AppCompatActivity()
     {
         super.onCreate(savedInstanceState)
 
-        binding = ActivitySignInBinding.inflate(layoutInflater)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.signInButton.setOnClickListener()
+        binding.signUpButton.setOnClickListener()
         {
             if(binding.emailTextInputEditText.text!!.isNotEmpty() && binding.passwordTextInputEditText.text!!.isNotEmpty())
             {
-                signViewModel.signIn(binding.emailTextInputEditText.text.toString(), binding.passwordTextInputEditText.text.toString())
+                signViewModel.signUp(binding.emailTextInputEditText.text.toString(), binding.passwordTextInputEditText.text.toString())
             }
 
             if(binding.emailTextInputEditText.text!!.isEmpty()) { binding.emailTextInputLayout.error = "이메일을 입력해 주세요." }
@@ -37,23 +36,15 @@ class SignInActivity : AppCompatActivity()
             else { binding.passwordTextInputLayout.error = null }
 
         }
-        signViewModel.signInResult.observe(this)
+        signViewModel.signUpResult.observe(this)
         {
-            if(it != null)  // 로그인 성공
+            if(it != null)  // 회원가입 성공
             {
 
             }
-            else  // 로그인 실패
+            else  // 회원가입 실패
             {
-                Snackbar.make(binding.mainLayout, "이메일 또는 패스워드가 잘못됐습니다.", Snackbar.LENGTH_SHORT).show()
-            }
-        }
-
-        binding.signUpButton.setOnClickListener()
-        {
-            Intent(this@SignInActivity, SignUpActivity::class.java).run()
-            {
-                startActivity(this)
+                Snackbar.make(binding.mainLayout, "이미 가입된 이메일입니다.", Snackbar.LENGTH_SHORT).show()
             }
         }
 

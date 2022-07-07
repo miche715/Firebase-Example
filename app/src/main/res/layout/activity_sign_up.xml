@@ -63,22 +63,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/signInButton"
+        android:id="@+id/signUpButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#AC1515"
-        android:text="로그인"
+        android:backgroundTint="#2962FF"
+        android:text="회원가입"
         app:layout_constraintEnd_toEndOf="@+id/passwordTextInputLayout"
         app:layout_constraintStart_toStartOf="@+id/passwordTextInputLayout"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextInputLayout" />
-
-    <Button
-        android:id="@+id/signUpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="회원가입"
-        app:layout_constraintTop_toBottomOf="@+id/signInButton"
-        tools:layout_editor_absoluteX="156dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

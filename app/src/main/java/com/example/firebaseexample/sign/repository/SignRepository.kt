@@ -23,4 +23,21 @@ class SignRepository @Inject constructor()
             }
         }
     }
+
+    fun signUpFirebase(email: String, password: String, _signUpResult: MutableLiveData<String?>)
+    {
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener()
+        {
+            if(it.isSuccessful)
+            {
+                _signUpResult.value = FirebaseAuth.getInstance().uid
+                Log.d("*** signUp 성공 ***", "${it.result}")
+            }
+            else
+            {
+                _signUpResult.value = null
+                Log.e("*** signUp 실패 ***", "${it.exception}")
+            }
+        }
+    }
 }
