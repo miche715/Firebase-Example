@@ -25,6 +25,13 @@ class SignInActivity : AppCompatActivity()
             {
                 signViewModel.signIn(binding.emailTextInputEditText.text.toString(), binding.passwordTextInputEditText.text.toString())
             }
+
+            if(binding.emailTextInputEditText.text!!.isEmpty()) { binding.emailTextInputLayout.error = "이메일을 입력해 주세요." }
+            else { binding.emailTextInputLayout.error = null }
+
+            if(binding.passwordTextInputEditText.text!!.isEmpty()) { binding.passwordTextInputLayout.error = "패스워드를 입력해 주세요." }
+            else { binding.passwordTextInputLayout.error = null }
+
         }
         signViewModel.signInResult.observe(this)
         {
