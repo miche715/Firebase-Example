@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.example.firebaseexample.databinding.ActivityUserDetailBinding
-import com.example.firebaseexample.user.UserViewModel
+import com.example.firebaseexample.user.viewmodel.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
