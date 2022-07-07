@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.example.firebaseexample.databinding.ActivitySignInBinding
 import com.example.firebaseexample.sign.viewmodel.SignViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignInActivity : AppCompatActivity()
 {
     private lateinit var binding: ActivitySignInBinding
