@@ -1,10 +1,12 @@
 package com.example.firebaseexample.sign.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.example.firebaseexample.databinding.ActivitySignUpBinding
 import com.example.firebaseexample.sign.viewmodel.SignViewModel
+import com.example.firebaseexample.user.view.UserDetailActivity
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,7 +42,10 @@ class SignUpActivity : AppCompatActivity()
         {
             if(it != null)  // 회원가입 성공
             {
-
+                Intent(this@SignUpActivity, UserDetailActivity::class.java).run()
+                {
+                    startActivity(this)
+                }
             }
             else  // 회원가입 실패
             {

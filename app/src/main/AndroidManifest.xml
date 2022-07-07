@@ -17,6 +17,9 @@
         android:theme="@style/Theme.Firebaseexample"
         tools:targetApi="31">
         <activity
+            android:name=".user.view.UserDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".sign.view.SignUpActivity"
             android:exported="false" />
         <activity
